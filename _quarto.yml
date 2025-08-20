@@ -1,0 +1,28 @@
+project:
+  type: website
+  # post-render:
+    # - _scripts/post-render.R
+
+description: The University of Sydney
+
+# dates (change these if you need to e.g. for a new semester)
+date: today
+date-format: "[Semester 1,] YYYY"
+
+format:
+  assignment-html:
+    embed-resources: false
+    title-block-banner: "white"
+    title-block-banner-color: "#000"
+    reference-location: margin
+    citation-location: margin
+    number-sections: true
+    number-depth: 2
+  assignment-typst: default # enable for pdf output (typst format)
+
+execute:
+  freeze: auto
+
+profile:
+  default: 
+    - solution

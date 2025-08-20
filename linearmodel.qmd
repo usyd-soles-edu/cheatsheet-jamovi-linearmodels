@@ -1,0 +1,98 @@
+---
+title: Building linear models with continuous predictor(s) - *simple and multiple linear models*
+subtitle: A video cheatsheet
+description: The University of Sydney
+resources: 
+  - penguins.csv
+---
+
+## About
+Linear models are a fundamental type of statistical model within the broader Generalised Linear Model (GLM) framework. While the GLM can accommodate various types of outcomes (like binary or count data), this cheatsheet focuses on the common case of linear models with **continuous** outcomes and predictors.
+
+With a linear model, you can answer questions like:
+
+- Is an adult penguin's body mass related to its flipper length?
+- How much does an exam score change for each extra hour of study, after accounting for sleep?
+- Do temperature and rainfall together better explain plant growth than either variable on its own?
+- Can we predict a future outcome (e.g., plant height) based on a predictor (e.g., temperature)?
+
+#### Assumed knowledge
+
+- Jamovi is installed and ready to use. This cheatsheet uses Jamovi 2.7.4.0.
+- A basic understanding of statistical concepts and terminology, such as the difference between categorical and continuous variables.
+- A basic knowledge of how to create model formulae, e.g., $y \sim x$.
+
+
+## Data
+
+We will use the well-known penguins dataset from the `palmerpenguins` R package. The dataset has been exported from the package in a format that Jamovi can read (.csv). 
+
+<a class="btn btn-outline-primary" href="penguins.csv" download>
+  <i class="bi bi-download" aria-hidden="true"></i> Download penguins.csv
+</a>
+
+## Install the GAMLj module
+
+To fit linear models in Jamovi we will use the GAMLj module, which gives a simple, formula-based interface for modelling.
+
+1. Open Jamovi and go to the Analyses tab.
+2. Click **Modules**, then select **jamovi library**.
+3. Search for "GAMLj3" and select it.
+4. Click **INSTALL** and wait for the installation to finish.
+5. Exit by clicking on the upper-right arrow button.
+
+{{< video assets/20250820-jamovi_install_gamlj3.mp4 >}}
+
+## Import data
+
+1. Click the <i class="bi bi-list" aria-hidden="true"></i> **hamburger menu** at the top-left of the Jamovi window.
+2. Select **Open** to open the file dialogue.
+3. In the dialogue, navigate to the folder where you saved `penguins.csv` and click **Open**.
+
+{{< video assets/20250819-jamovi_open_penguins.mp4 >}}
+
+
+## Constructing linear models
+
+You should first think about what your research question is and which variables you want to include in your model. Then, construct the model using the formula syntax. For example:
+
+$$\mathrm{body\_mass} \sim \mathrm{flipper\_length}$$
+
+indicates a model where body mass is predicted by flipper length, and both are continuous variables. Where multiple variables are included, the syntax expands to:
+
+$$\mathrm{body\_mass} \sim \mathrm{flipper\_length} + \mathrm{bill\_depth}$$
+
+where we are specifying that body mass is predicted by flipper length and bill depth, all of which are continuous variables, and all of which are additive. Finally, it might be important to specify that the predictors are not additive, for example by including an interaction term:
+
+$$\mathrm{body\_mass} \sim \mathrm{flipper\_length} \times \mathrm{bill\_depth}$$
+
+## Fitting the model
+
+1. In the Analyses tab, click on the Linear Models button and select **General Linear Model**.
+2. Drag the variables you want to include in your model into the appropriate boxes in the GAMLj interface. For example, you might drag `body_mass` into the **Dependent Variable** box and `flipper_length` and `bill_depth` into the **Covariates** box. 
+3. Leave the Factors box empty as it is used for categorical variables (which we do not cover in this cheatsheet).
+4. [**If you want to include additional predictors**]{style="color:steelblue"}, drag those (continuous) variables into the **Covariates** box.
+5. [**If you are interested in model interactions**]{style="color:steelblue"}, go to the Model tab, select the variables you want to interact in the **Components** box, and drag them into the **Model Terms** box.
+
+::: {.panel-tabset}
+## Single predictor
+
+{{< video assets/20250820-jamovi_linear_single.mp4 >}}
+
+## Multiple predictors (and interaction terms)
+
+Note that interaction terms are available only when two or more predictors are included in the model.
+
+{{< video assets/20250820-jamovi_linear_interactions.mp4 >}}
+
+:::
+
+## Export
+
+To export data, right click on an object in the right pane (e.g. a table), copy the object and paste in your word processor of choice (e.g. MS Word).
+
+{{< video assets/20250820-jamovi_export.mp4 >}}
+
+### Attribution
+
+This cheatsheet was developed using resources that are available under a [Creative Commons Attribution 4.0 International license](http://creativecommons.org/licenses/by/4.0/) and made available on the [SOLES Open Educational Resources repository](https://github.com/usyd-soles-edu/).
