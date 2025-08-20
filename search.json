@@ -1,0 +1,58 @@
+[
+  {
+    "objectID": "linearmodel.html",
+    "href": "linearmodel.html",
+    "title": "Building linear models with continuous predictor(s) - simple and multiple linear models",
+    "section": "",
+    "text": "Linear models are a fundamental type of statistical model within the broader Generalised Linear Model (GLM) framework. While the GLM can accommodate various types of outcomes (like binary or count data), this cheatsheet focuses on the common case of linear models with continuous outcomes and predictors.\nWith a linear model, you can answer questions like:\n\nIs an adult penguin’s body mass related to its flipper length?\nHow much does an exam score change for each extra hour of study, after accounting for sleep?\nDo temperature and rainfall together better explain plant growth than either variable on its own?\nCan we predict a future outcome (e.g., plant height) based on a predictor (e.g., temperature)?\n\n\n\n\nJamovi is installed and ready to use. This cheatsheet uses Jamovi 2.7.4.0.\nA basic understanding of statistical concepts and terminology, such as the difference between categorical and continuous variables.\nA basic knowledge of how to create model formulae, e.g., y \\sim x."
+  },
+  {
+    "objectID": "linearmodel.html#about",
+    "href": "linearmodel.html#about",
+    "title": "Building linear models with continuous predictor(s) - simple and multiple linear models",
+    "section": "",
+    "text": "Linear models are a fundamental type of statistical model within the broader Generalised Linear Model (GLM) framework. While the GLM can accommodate various types of outcomes (like binary or count data), this cheatsheet focuses on the common case of linear models with continuous outcomes and predictors.\nWith a linear model, you can answer questions like:\n\nIs an adult penguin’s body mass related to its flipper length?\nHow much does an exam score change for each extra hour of study, after accounting for sleep?\nDo temperature and rainfall together better explain plant growth than either variable on its own?\nCan we predict a future outcome (e.g., plant height) based on a predictor (e.g., temperature)?\n\n\n\n\nJamovi is installed and ready to use. This cheatsheet uses Jamovi 2.7.4.0.\nA basic understanding of statistical concepts and terminology, such as the difference between categorical and continuous variables.\nA basic knowledge of how to create model formulae, e.g., y \\sim x."
+  },
+  {
+    "objectID": "linearmodel.html#data",
+    "href": "linearmodel.html#data",
+    "title": "Building linear models with continuous predictor(s) - simple and multiple linear models",
+    "section": "2 Data",
+    "text": "2 Data\nWe will use the well-known penguins dataset from the palmerpenguins R package. The dataset has been exported from the package in a format that Jamovi can read (.csv).\n  Download penguins.csv"
+  },
+  {
+    "objectID": "linearmodel.html#install-the-gamlj-module",
+    "href": "linearmodel.html#install-the-gamlj-module",
+    "title": "Building linear models with continuous predictor(s) - simple and multiple linear models",
+    "section": "3 Install the GAMLj module",
+    "text": "3 Install the GAMLj module\nTo fit linear models in Jamovi we will use the GAMLj module, which gives a simple, formula-based interface for modelling.\n\nOpen Jamovi and go to the Analyses tab.\nClick Modules, then select jamovi library.\nSearch for “GAMLj3” and select it.\nClick INSTALL and wait for the installation to finish.\nExit by clicking on the upper-right arrow button."
+  },
+  {
+    "objectID": "linearmodel.html#import-data",
+    "href": "linearmodel.html#import-data",
+    "title": "Building linear models with continuous predictor(s) - simple and multiple linear models",
+    "section": "4 Import data",
+    "text": "4 Import data\n\nClick the  hamburger menu at the top-left of the Jamovi window.\nSelect Open to open the file dialogue.\nIn the dialogue, navigate to the folder where you saved penguins.csv and click Open."
+  },
+  {
+    "objectID": "linearmodel.html#constructing-linear-models",
+    "href": "linearmodel.html#constructing-linear-models",
+    "title": "Building linear models with continuous predictor(s) - simple and multiple linear models",
+    "section": "5 Constructing linear models",
+    "text": "5 Constructing linear models\nYou should first think about what your research question is and which variables you want to include in your model. Then, construct the model using the formula syntax. For example:\n\\mathrm{body\\_mass} \\sim \\mathrm{flipper\\_length}\nindicates a model where body mass is predicted by flipper length, and both are continuous variables. Where multiple variables are included, the syntax expands to:\n\\mathrm{body\\_mass} \\sim \\mathrm{flipper\\_length} + \\mathrm{bill\\_depth}\nwhere we are specifying that body mass is predicted by flipper length and bill depth, all of which are continuous variables, and all of which are additive. Finally, it might be important to specify that the predictors are not additive, for example by including an interaction term:\n\\mathrm{body\\_mass} \\sim \\mathrm{flipper\\_length} \\times \\mathrm{bill\\_depth}"
+  },
+  {
+    "objectID": "linearmodel.html#fitting-the-model",
+    "href": "linearmodel.html#fitting-the-model",
+    "title": "Building linear models with continuous predictor(s) - simple and multiple linear models",
+    "section": "6 Fitting the model",
+    "text": "6 Fitting the model\n\nIn the Analyses tab, click on the Linear Models button and select General Linear Model.\nDrag the variables you want to include in your model into the appropriate boxes in the GAMLj interface. For example, you might drag body_mass into the Dependent Variable box and flipper_length and bill_depth into the Covariates box.\nLeave the Factors box empty as it is used for categorical variables (which we do not cover in this cheatsheet).\nIf you want to include additional predictors, drag those (continuous) variables into the Covariates box.\nIf you are interested in model interactions, go to the Model tab, select the variables you want to interact in the Components box, and drag them into the Model Terms box.\n\n\nSingle predictorMultiple predictors (and interaction terms)\n\n\n\n\n\nNote that interaction terms are available only when two or more predictors are included in the model."
+  },
+  {
+    "objectID": "linearmodel.html#export",
+    "href": "linearmodel.html#export",
+    "title": "Building linear models with continuous predictor(s) - simple and multiple linear models",
+    "section": "7 Export",
+    "text": "7 Export\nTo export data, right click on an object in the right pane (e.g. a table), copy the object and paste in your word processor of choice (e.g. MS Word).\n\n\nAttribution\nThis cheatsheet was developed using resources that are available under a Creative Commons Attribution 4.0 International license and made available on the SOLES Open Educational Resources repository."
+  }
+]
